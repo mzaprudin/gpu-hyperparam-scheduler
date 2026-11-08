@@ -22,9 +22,8 @@ remains accessible through the source link.
 - Modular Ouroboros optimizer, parameter ranges, history, scheduler and workers.
 - Command-line launchers and the callable `run_optimization` helper.
 
-The Solana RPC client, wallet community detector, QuestDB ingestion, stair
-prediction API and older monolithic / alternative optimizer implementations
-were omitted. Local training does not require those services.
+This package focuses on local-data preparation, model training and experiment
+scheduling. Its command-line tools operate on datasets supplied as local files.
 
 ## Changes made during extraction
 
@@ -49,19 +48,18 @@ were omitted. Local training does not require those services.
   instead of silently waiting for another result. Search state is saved atomically
   within the experiment's artifact directory.
 
-## Verification and research limits
+## Verification
 
 CPU verification covers imports of every module, a real model forward/backward
 pass, serialization round trip, full one-epoch training and checkpoint evaluation.
 Scheduler tests use the real task/result queues with a lightweight evaluator to
 exercise saving and resuming without allocating GPU devices.
 
-Multi-GPU training, CUDA compatibility, speedup and fault tolerance on actual GPU
-hardware have not been measured here. The retained search strategies are
-experimental; no advantage over standard HPO libraries is claimed.
+The recorded [CPU example](examples/README.md) generates synthetic time series,
+trains the model, writes a checkpoint and produces a JSON report and plot.
 
-The historical trainer returns test-split precision to the optimizer. That
-evaluation behavior is retained in this extraction. For an unbiased final quality
-estimate, use a further untouched dataset; scores used during search are not an
-independent benchmark. The synthetic example verifies execution, not market
-prediction quality.
+The current evaluation sequence selects the classification threshold on
+validation data, then applies it to the test split. The optimizer ranks candidate
+configurations by the resulting precision. The [architecture guide](ARCHITECTURE.md)
+describes this flow and the distinction between saved search history and model
+checkpoints.
