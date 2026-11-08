@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gpu-hyperparam-scheduler"
+version = "0.1.0"
+description = "Time-series classification and asynchronous multi-GPU hyperparameter optimization"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "tensorflow>=2.16.2,<2.17",
+    "keras>=3.3,<3.4",
+    "numpy>=1.26,<2",
+    "pandas>=2.2,<3",
+    "scipy>=1.13,<2",
+    "scikit-learn>=1.4,<2",
+    "matplotlib>=3.8,<4",
+    "nvidia-ml-py>=12,<14",
+]
+
+[project.optional-dependencies]
+gpu = ["tensorflow[and-cuda]>=2.16.2,<2.17; sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[project.urls]
+Repository = "https://github.com/mzaprudin/gpu-hyperparam-scheduler"
+Issues = "https://github.com/mzaprudin/gpu-hyperparam-scheduler/issues"
+
+[project.scripts]
+gpu-hyperparam-train = "gpu_hyperparam_scheduler.cli:train"
+gpu-hyperparam-scheduler = "gpu_hyperparam_scheduler.cli:optimize"
+gpu-hyperparam-check = "gpu_hyperparam_scheduler.check:main"
+gpu-hyperparam-demo-data = "gpu_hyperparam_scheduler.demo:main"
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9", "ruff>=0.11,<1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gpu_hyperparam_scheduler"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff.lint]
+select = ["F821", "F822", "F823"]

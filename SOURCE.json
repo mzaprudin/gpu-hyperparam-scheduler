@@ -1,0 +1,123 @@
+{
+  "repository": "https://github.com/pepelax/neurosol",
+  "commit": "e37cb145f8a7d6ef28880d8b4024db3d2df5987d",
+  "branch": "main",
+  "files": {
+    "nn.py": {
+      "source": "nn.py",
+      "sha256": "6c29ce7bd2f8acd67cf873113ccdd49dea92dfcb52dbeea5ad46308a30e6af84"
+    },
+    "ouro.py": {
+      "source": "ouro.py",
+      "sha256": "1aef0e91d5acd6dcd91def0c599bee1c94ca754a722510ced9e70cb42f0ae202"
+    },
+    "src/gpu_hyperparam_scheduler/args.py": {
+      "source": "src/args.py",
+      "sha256": "e2b398dfa4ce7166977b03a92c1e37c2ed0d630c2a5f16292a5e7b8c4293e940"
+    },
+    "src/gpu_hyperparam_scheduler/config.py": {
+      "source": "src/config.py",
+      "sha256": "624525f33a9ba5aae40861cc3d3f3b092ecadecb1e77da67a058ffe14837624b"
+    },
+    "src/gpu_hyperparam_scheduler/constants.py": {
+      "source": "src/constants.py",
+      "sha256": "45231a6f6d16dc4a8c3a0cc2dc50f70c165289fa013c58b51a97879d746e3934"
+    },
+    "src/gpu_hyperparam_scheduler/create_model.py": {
+      "source": "src/create_model.py",
+      "sha256": "d17cfb7062be5a45ea9b78b3dbb26b8a98368f9a91960abd1cf8318c60bb5e4b"
+    },
+    "src/gpu_hyperparam_scheduler/data_generator.py": {
+      "source": "src/data_generator.py",
+      "sha256": "616ceb87d1fb4ad2fba444d9f5a334f51870a07c5a87adc327eddec0d077cd59"
+    },
+    "src/gpu_hyperparam_scheduler/data_loader.py": {
+      "source": "src/data_loader.py",
+      "sha256": "3395cb69ba97600432d1d3f06deb30e2812b4c9a0ddc7b3889214d227ce67c69"
+    },
+    "src/gpu_hyperparam_scheduler/data_preparation.py": {
+      "source": "src/data_preparation.py",
+      "sha256": "d654588305dc6e605fca14d131cd6415fddec8156790f8d17edc833612a61bba"
+    },
+    "src/gpu_hyperparam_scheduler/gpu_worker.py": {
+      "source": "src/gpu_worker.py",
+      "sha256": "9b2a53e60d9a7684c7835180dca2f725d3dc81134ec18f418bf2313094d90b6b"
+    },
+    "src/gpu_hyperparam_scheduler/hyperparameters.py": {
+      "source": "src/hyperparameters.py",
+      "sha256": "968fdad8f0833838597390804ba8bbac89d10e7ed24b24707cacaaf278c41252"
+    },
+    "src/gpu_hyperparam_scheduler/logging.py": {
+      "source": "src/logging.py",
+      "sha256": "c2d3c342cbfbc5bc547ccdf0a211daf3a68eb22f4e01739b40c477b89cfe2356"
+    },
+    "src/gpu_hyperparam_scheduler/metrics.py": {
+      "source": "src/metrics.py",
+      "sha256": "e134834ae7e8cd5dc1896949858e7284ef50dbb3f8e173aaf88e6b30216e8d17"
+    },
+    "src/gpu_hyperparam_scheduler/model_trainer.py": {
+      "source": "src/model_trainer.py",
+      "sha256": "e5ab69cf54d47395b5f8b54771a83a17a885f2424a3c9c53ffdee00fab1185df"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/__init__.py": {
+      "source": "src/optimizers/ouroboros/__init__.py",
+      "sha256": "66d04ff84b77624e079c2f24178a75321690950f1ff95648504c7e9a35fe87bd"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/config.py": {
+      "source": "src/optimizers/ouroboros/config.py",
+      "sha256": "450e5260f833ea557487bd483837a50b857cdd8e8dce416b9a09ba71cc2baae4"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/knowledge_nexus.py": {
+      "source": "src/optimizers/ouroboros/knowledge_nexus.py",
+      "sha256": "bff65ea3cf57b9a8a124ad75b2968903b0c4b138e2784b08e4a57d2345c6717a"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/optimizer.py": {
+      "source": "src/optimizers/ouroboros/optimizer.py",
+      "sha256": "05c7f9898c3173b366920ebecf2e802de35e22ca3eb9cc0b781e27411cb85a44"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/parameter_optimizer.py": {
+      "source": "src/optimizers/ouroboros/parameter_optimizer.py",
+      "sha256": "dbfd1105583f506521991bf2d823dcc3d5c91bc876ce25ae78604038e483d317"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/parameter_validator.py": {
+      "source": "src/optimizers/ouroboros/parameter_validator.py",
+      "sha256": "5f08a6ac3e69a82676ada6c07b3f9e910eee9351fc1bee8927ffe0ad01a42671"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/task_manager.py": {
+      "source": "src/optimizers/ouroboros/task_manager.py",
+      "sha256": "6a06c8deb5f63205256631cc0ac96b1782519889491debcb467c1df14d814941"
+    },
+    "src/gpu_hyperparam_scheduler/optimizers/ouroboros/worker_manager.py": {
+      "source": "src/optimizers/ouroboros/worker_manager.py",
+      "sha256": "7e719e160e9e3f97f801b88738c17c77a0428a2f0eec9b080ad1718217a25b17"
+    },
+    "src/gpu_hyperparam_scheduler/ouroboros_main.py": {
+      "source": "src/ouroboros_main.py",
+      "sha256": "94f5a233f04391b6f93920f451169abd67c0516bab2f3173ebe9c55a575b1761"
+    },
+    "src/gpu_hyperparam_scheduler/param_range.py": {
+      "source": "src/param_range.py",
+      "sha256": "7918d335561baeef19ca45cfa2c886f3a631dd2d6d223b4c05aa4b53d777c017"
+    },
+    "src/gpu_hyperparam_scheduler/parameter_sampler.py": {
+      "source": "src/parameter_sampler.py",
+      "sha256": "a4adc6d819adc2526908c2ee4b48d5941ae49136b50a0b8e8d4ef723d70bc568"
+    },
+    "src/gpu_hyperparam_scheduler/training_args.py": {
+      "source": "src/training_args.py",
+      "sha256": "baccaa693d180429655a94b0357a41f9f45d6ccfb165cd36b2a71c63e1755688"
+    },
+    "src/gpu_hyperparam_scheduler/types.py": {
+      "source": "src/types.py",
+      "sha256": "465f040c3d7c940add67b10c8bcf741ede13de5ce08b8056f544e37a5e525202"
+    },
+    "src/gpu_hyperparam_scheduler/utils.py": {
+      "source": "src/utils.py",
+      "sha256": "12408d5f0634492ec9efcc6cd044471cf2385c1c5098026a1aa88faf9ade0e9e"
+    },
+    "src/gpu_hyperparam_scheduler/visualization.py": {
+      "source": "src/visualization.py",
+      "sha256": "ba0df2241d84fc196f7c47f94787669c5a01d066a08312816220108b962ef80b"
+    }
+  }
+}

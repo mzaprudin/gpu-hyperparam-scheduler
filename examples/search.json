@@ -1,0 +1,21 @@
+{
+  "data": "data/demo.pkl",
+  "save_dir": "artifacts/search",
+  "window": 16,
+  "forward": 12,
+  "skip": 2,
+  "step": 8,
+  "batch": 16,
+  "val_hours": 2,
+  "test_hours": 2,
+  "up": 0.01,
+  "dn": 0.01,
+  "range": 0.001,
+  "volume": 0,
+  "liquidity": 100,
+  "min_epochs": 1,
+  "max_epochs": 3,
+  "max_configurations": 5,
+  "initial_points": 2,
+  "seed": 42
+}
