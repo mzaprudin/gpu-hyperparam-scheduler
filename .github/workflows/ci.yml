@@ -32,3 +32,21 @@ jobs:
       - run: uv run gpu-hyperparam-check --smoke
       - run: uv run pytest
       - run: uv build
+      - name: Run the documented CPU example
+        run: |
+          uv run gpu-hyperparam-demo-data
+          uv run gpu-hyperparam-train --config examples/cpu.json
+          uv run gpu-hyperparam-train --config examples/cpu.json --test --model artifacts/cpu-demo/demo.keras --threshold 0.5 --save-dir artifacts/cpu-evaluation
+      - name: Save the CPU example outputs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cpu-example-${{ github.sha }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            artifacts/cpu-demo/
+            artifacts/cpu-evaluation/
+            examples/cpu.json
+            examples/model-small.json
+            dist/
