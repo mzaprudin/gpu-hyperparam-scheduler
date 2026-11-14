@@ -2,9 +2,11 @@
 
 [Русская версия](ARCHITECTURE.RU.md) · [Project overview](README.md) · [Working examples](examples/README.md)
 
-The program turns local time series into labeled windows, trains a classifier and
-tries different model settings. The GPU scheduler runs independent training trials
-and uses completed results to choose later candidates.
+The GPU scheduler runs independent training trials and uses completed results to
+choose later candidates. The included TensorFlow/Keras integration turns local
+time series into labeled windows and trains a classifier. The data and model
+sections below describe that integration; [adaptation points](#adapt-the-integration)
+cover reuse for a different task.
 
 ## Data and execution
 
@@ -127,6 +129,26 @@ sensitivities and duration estimates. Startup restores valid records and exclude
 their IDs from new candidates. `max_configurations` sets the additional candidate
 budget for the new invocation. Model checkpoint reuse is explicit: `--model`
 loads a saved model and starts another training call with the requested epochs.
+
+## Adapt the integration
+
+The scheduling approach can be reused for other models and data types. The
+current implementation wires the controller to concrete Python types and a
+TensorFlow/Keras worker; adapting another task involves code changes.
+
+| Part to adapt | Source and responsibility |
+| --- | --- |
+| Parameter schema and search space | [create_model.py](src/gpu_hyperparam_scheduler/create_model.py), [hyperparameters.py](src/gpu_hyperparam_scheduler/hyperparameters.py) and [parameter_sampler.py](src/gpu_hyperparam_scheduler/parameter_sampler.py): parameter fields, valid ranges, sampling and model-specific crossover/mutation rules |
+| Input and batches | [data_loader.py](src/gpu_hyperparam_scheduler/data_loader.py), [data_generator.py](src/gpu_hyperparam_scheduler/data_generator.py) and [worker configuration](src/gpu_hyperparam_scheduler/types.py): preparation, generators and the data supplied to each worker |
+| Trial execution | [gpu_worker.py](src/gpu_hyperparam_scheduler/gpu_worker.py) and [model_trainer.py](src/gpu_hyperparam_scheduler/model_trainer.py): model construction, training, evaluation and artifacts |
+| Objective and result handling | [types.py](src/gpu_hyperparam_scheduler/types.py), [task_manager.py](src/gpu_hyperparam_scheduler/optimizers/ouroboros/task_manager.py) and [knowledge_nexus.py](src/gpu_hyperparam_scheduler/optimizers/ouroboros/knowledge_nexus.py): result fields, ranking, sensitivity estimates and error scores; the included integration maximizes `precision` |
+
+Keep the task/result queues and controller lifecycle aligned with these types.
+Use a fresh result directory when changing the dataset, parameter schema or
+objective: configuration IDs contain model parameters, not dataset identity.
+History reuse restores completed trials; it does not automatically restore an
+interrupted worker's training checkpoint. The [example guide](examples/README.md)
+describes the bundled integration's input schema and evaluation protocol.
 
 ## Failures and verification
 

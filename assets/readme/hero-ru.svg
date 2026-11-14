@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">GPU Hyperparameter Search — параллельный подбор гиперпараметров с сохранением прогресса</title>
+  <desc id="desc">Условная схема планировщика: три дорожки GPU выполняют эксперименты разной длительности. Результаты сохраняются и возвращаются в выбор новых конфигураций. Параллельный поиск. Прогресс сохраняется.</desc>
+  <rect width="1200" height="440" rx="24" fill="#251c2b"/>
+
+  <g id="project-title" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="56" y="69" font-size="24" font-weight="600" letter-spacing="3" fill="#b8a8bd">MULTI-GPU SCHEDULER</text>
+    <text x="52" y="166" font-size="82" font-weight="700" letter-spacing="-3" fill="#fbf1e5">Hyperparameter</text>
+    <text x="50" y="269" font-size="112" font-weight="700" letter-spacing="-4" fill="#ffae7d">Search</text>
+    <text x="56" y="339" font-size="40" fill="#fbf1e5">Параллельный поиск.</text>
+    <text x="56" y="389" font-size="40" fill="#fbf1e5">Прогресс сохраняется.</text>
+  </g>
+
+  <g id="asynchronous-trial-lanes" stroke-linecap="round" stroke-linejoin="round">
+    <g id="candidate-queue" fill="#251c2b" stroke="#b8a8bd" stroke-width="2.5">
+      <rect x="822" y="60" width="48" height="36" rx="6"/>
+      <rect x="832" y="70" width="48" height="36" rx="6"/>
+      <rect x="842" y="80" width="48" height="36" rx="6" stroke="#ffae7d"/>
+      <path d="M854 92h24m-24 10h15" stroke="#ffae7d"/>
+    </g>
+    <path d="M890 98h246q14 0 14 14v246q0 20-20 20H828q-20 0-20-20V138q0-16 16-16h6" fill="none" stroke="#806b88" stroke-width="3"/>
+    <path d="m820 114 10 8-10 8" fill="none" stroke="#ffae7d" stroke-width="3"/>
+
+    <g id="gpu-workers" fill="#34263b" stroke="#b8a8bd" stroke-width="3">
+      <rect x="832" y="141" width="68" height="52" rx="9"/>
+      <rect x="832" y="223" width="68" height="52" rx="9"/>
+      <rect x="832" y="305" width="68" height="52" rx="9"/>
+      <path d="M846 134v7m16-7v7m16-7v7m-32 52v7m16-7v7m16-7v7M846 216v7m16-7v7m16-7v7m-32 52v7m16-7v7m16-7v7M846 298v7m16-7v7m16-7v7m-32 52v7m16-7v7m16-7v7"/>
+    </g>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="600" fill="#fbf1e5" text-anchor="middle">
+      <text x="866" y="175">GPU</text>
+      <text x="866" y="257">GPU</text>
+      <text x="866" y="339">GPU</text>
+    </g>
+
+    <g id="independent-trials">
+      <path d="M912 167h220M912 249h220M912 331h220" fill="none" stroke="#5b4764" stroke-width="3"/>
+      <g fill="#ffae7d">
+        <rect x="916" y="149" width="60" height="36" rx="7"/>
+        <rect x="916" y="231" width="112" height="36" rx="7"/>
+        <rect x="916" y="313" width="78" height="36" rx="7"/>
+      </g>
+      <g fill="#dbc58d">
+        <rect x="986" y="149" width="90" height="36" rx="7"/>
+        <rect x="1038" y="231" width="54" height="36" rx="7"/>
+        <rect x="1004" y="313" width="106" height="36" rx="7"/>
+      </g>
+      <path d="m934 166 6 6 12-12m-18 88 6 6 12-12m-18 88 6 6 12-12" fill="none" stroke="#543c44" stroke-width="3"/>
+    </g>
+
+    <g id="saved-results" fill="#251c2b" stroke="#dbc58d" stroke-width="2.5">
+      <path d="M1060 362v23c0 6 46 6 46 0v-23"/>
+      <ellipse cx="1083" cy="362" rx="23" ry="6"/>
+      <path d="M1060 374c0 6 46 6 46 0" fill="none"/>
+    </g>
+  </g>
+</svg>
